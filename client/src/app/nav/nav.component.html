@@ -1,0 +1,104 @@
+<!--<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Equipos</a>
+    <ng-template ngbNavContent><app-equipos></app-equipos></ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Integrantes</a>
+    <ng-template ngbNavContent><app-integrantes></app-integrantes></ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Eventos</a>
+    <ng-template ngbNavContent><app-eventos></app-eventos></ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Jurados</a>
+    <ng-template ngbNavContent><app-jurados></app-jurados></ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="cursor: pointer" (click)="goToHome()"
+      >CRUD</a
+    >
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            style="cursor: pointer"
+            class="nav-link active"
+            aria-current="page"
+            (click)="goToEquipos()"
+            >Equipos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            style="cursor: pointer"
+            (click)="goToIntegrantes()"
+            >Integrantes</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            style="cursor: pointer"
+            (click)="goToEventos()"
+            >Eventos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            style="cursor: pointer"
+            (click)="goToJurados()"
+            >Jurados</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--<div
+      class="dropdown"
+      *ngIf="accountService.currentUser$ | async as user"
+      dropdown
+    >
+      <a class="dropdown-toggle text-light" dropdownToggle
+        >Welcome, {{ user.username | titlecase }}</a
+      >
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item">Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()">Logout</a>
+      </div>
+    </div>
+    <form
+      *ngIf="!(accountService.currentUser$ | async)"
+      #loginForm="ngForm"
+      class="d-flex form-inline"
+      (ngSubmit)="login()"
+      autocomplete="off"
+    >
+      <input
+        [(ngModel)]="model.username"
+        name="username"
+        class="form-control me-2"
+        type="text"
+        placeholder="Username"
+      />
+      <input
+        [(ngModel)]="model.password"
+        name="password"
+        class="form-control me-2"
+        type="password"
+        placeholder="Password"
+      />
+      <button class="btn btn-success" type="submit">Login</button>
+    </form>-->
+  </div>
+</nav>

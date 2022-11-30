@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\proyectos\\CRUD\\api\\api.csproj": {}
+    "C:\\proyectos\\CRUD\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\proyectos\\CRUD\\api\\api.csproj": {
+    "C:\\proyectos\\CRUD\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\proyectos\\CRUD\\api\\api.csproj",
-        "projectName": "api",
-        "projectPath": "C:\\proyectos\\CRUD\\api\\api.csproj",
+        "projectUniqueName": "C:\\proyectos\\CRUD\\API\\API.csproj",
+        "projectName": "API",
+        "projectPath": "C:\\proyectos\\CRUD\\API\\API.csproj",
         "packagesPath": "C:\\Users\\jalom\\.nuget\\packages\\",
-        "outputPath": "C:\\proyectos\\CRUD\\api\\obj\\",
+        "outputPath": "C:\\proyectos\\CRUD\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

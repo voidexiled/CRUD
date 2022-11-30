@@ -1,0 +1,61 @@
+<div class="container p-4">
+  <h3 class="">Registrar Equipo</h3>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+    <input
+      [(ngModel)]="nombre"
+      type="text"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Apellido materno</span
+      >
+    </div>
+    <input
+      [(ngModel)]="apellido1"
+      type="text"
+      class="form-control"
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Apellido paterno</span
+      >
+    </div>
+    <input
+      [(ngModel)]="apellido2"
+      type="text"
+      class="form-control"
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">CURP</span>
+    </div>
+    <input
+      [(ngModel)]="curp"
+      type="text"
+      class="form-control"
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+
+  <input
+    (click)="submit()"
+    class="btn btn-primary"
+    type="submit"
+    value="Enviar"
+  />
+</div>

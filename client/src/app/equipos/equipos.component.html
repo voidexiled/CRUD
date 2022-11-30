@@ -1,0 +1,75 @@
+<div class="container p-4">
+  <h3 class="">Registrar Equipo</h3>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+    <input
+      [(ngModel)]="nombreEquipo"
+      type="text"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Institucion</span
+      >
+    </div>
+    <input
+      [(ngModel)]="institucionEquipo"
+      type="text"
+      class="form-control"
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+    />
+  </div>
+
+  <div class="row row-cols-sm-auto">
+    <div ngbDropdown class="d-inline-block">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+      >
+        Categoria
+      </button>
+      <div ngbDropdownMenu aria-labelledby="categoriaDropdown">
+        <button ngbDropdownItem (click)="setCategoria('primaria')">
+          Primaria
+        </button>
+        <button ngbDropdownItem (click)="setCategoria('secundaria')">
+          Secundaria
+        </button>
+        <button ngbDropdownItem (click)="setCategoria('bachillerato')">
+          Bachillerato
+        </button>
+        <button ngbDropdownItem (click)="setCategoria('primaria')">
+          Profesional
+        </button>
+      </div>
+    </div>
+    <div class="mb-3">
+      <input
+        [(ngModel)]="categoriaEquipo"
+        disabled
+        type="text"
+        class="form-control"
+        aria-label="Default"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+  </div>
+
+  <input
+    (click)="submit()"
+    class="btn btn-primary"
+    type="submit"
+    value="Enviar"
+  />
+</div>
+<div class="container">
+  <app-tabla-equipos></app-tabla-equipos>
+</div>
