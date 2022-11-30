@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FhuwwdZMz9FbLcDPapC3f2Yk7CHRCRRa1P8ECmq63AYgXwMCp/HMpPqasU1sb8UrKH/dlv1yrzyP2Oo2XZAcdg==",
+  "dgSpecHash": "UgsffR527IEsvR1TYxYIFgqSZ90WBSK9vYoj4XRCYlnikhALMBTZYLLlkdi9alhcerHpd3jnjeBOb1yB+gk4pw==",
   "success": true,
-  "projectFilePath": "C:\\proyectos\\CRUD\\API\\API.csproj",
+  "projectFilePath": "C:\\proyectos\\CRUD\\API\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jalom\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\jalom\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

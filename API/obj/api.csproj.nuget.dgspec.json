@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\proyectos\\CRUD\\API\\API.csproj": {}
+    "C:\\proyectos\\CRUD\\API\\api.csproj": {}
   },
   "projects": {
-    "C:\\proyectos\\CRUD\\API\\API.csproj": {
+    "C:\\proyectos\\CRUD\\API\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\proyectos\\CRUD\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\proyectos\\CRUD\\API\\API.csproj",
+        "projectUniqueName": "C:\\proyectos\\CRUD\\API\\api.csproj",
+        "projectName": "api",
+        "projectPath": "C:\\proyectos\\CRUD\\API\\api.csproj",
         "packagesPath": "C:\\Users\\jalom\\.nuget\\packages\\",
         "outputPath": "C:\\proyectos\\CRUD\\API\\obj\\",
         "projectStyle": "PackageReference",
