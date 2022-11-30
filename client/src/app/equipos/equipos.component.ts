@@ -23,4 +23,8 @@ export class EquiposComponent implements OnInit {
   setCategoria(cat: string) {
     this.categoriaEquipo = cat;
   }
+  isRol(id: number): boolean {
+    return localStorage.getItem('rol') == id.toString();
+  }
+
 }

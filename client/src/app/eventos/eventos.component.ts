@@ -13,5 +13,7 @@ export class EventosComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  isRol(id: number): boolean {
+    return localStorage.getItem('rol') == id.toString();
+  }
 }

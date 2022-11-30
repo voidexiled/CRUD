@@ -21,4 +21,7 @@ export class JuradosComponent implements OnInit {
     );
   }
 
+  isRol(id: number): boolean {
+    return localStorage.getItem('rol') == id.toString();
+  }
 }

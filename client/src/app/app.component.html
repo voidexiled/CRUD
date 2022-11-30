@@ -1,1 +1,7 @@
-<app-home></app-home> <router-outlet> </router-outlet>
+<div *ngIf="!sessionExists()">
+  <app-login></app-login>
+</div>
+<div *ngIf="sessionExists()">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</div>

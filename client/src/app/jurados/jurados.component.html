@@ -1,5 +1,5 @@
-<div class="container p-4">
-  <h3 class="">Registrar Equipo</h3>
+<div class="container p-4" *ngIf="isRol(2)">
+  <h3 class="">Registrar Jurado</h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
     <input
@@ -58,4 +58,8 @@
     type="submit"
     value="Enviar"
   />
+</div>
+
+<div class="container">
+  <app-tabla-jurados></app-tabla-jurados>
 </div>

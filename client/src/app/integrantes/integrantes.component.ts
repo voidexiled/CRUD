@@ -66,4 +66,7 @@ export class IntegrantesComponent implements OnInit {
       + "Categoria Correspondiente: " + this.categoriaCorrespondiente
     );
   }
+  isRol(id: number): boolean {
+    return localStorage.getItem('rol') == id.toString();
+  }
 }

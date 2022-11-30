@@ -1,11 +1,11 @@
-<table class="table table-striped text-white">
+<table class="table table-striped text-white" *ngIf="isRol(2) || isRol(1)">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
       <th scope="col">Institucion</th>
       <th scope="col">Categoria</th>
-      <th scope="col">Accion</th>
+      <th scope="col" *ngIf="isRol(2)">Accion</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <td class="text-white">{{ dato.Nombre }}</td>
       <td class="text-white">{{ dato.Institucion }}</td>
       <td class="text-white">{{ dato.Categoria }}</td>
-      <td class="text-white">
+      <td class="text-white" *ngIf="isRol(2)">
         <button
           style="margin-right: 5px"
           class="text-bg-info btn btn-outline-secondary bi bi-pencil-fill"

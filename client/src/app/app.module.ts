@@ -17,6 +17,7 @@ import { TablaEquiposComponent } from './tablas/tabla-equipos/tabla-equipos.comp
 import { TablaIntegrantesComponent } from './tablas/tabla-integrantes/tabla-integrantes.component';
 import { TablaEventosComponent } from './tablas/tabla-eventos/tabla-eventos.component';
 import { TablaJuradosComponent } from './tablas/tabla-jurados/tabla-jurados.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TablaJuradosComponent } from './tablas/tabla-jurados/tabla-jurados.comp
     TablaIntegrantesComponent,
     TablaEventosComponent,
     TablaJuradosComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,

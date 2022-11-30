@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-4" *ngIf="isRol(2)">
   <h3 class="">Registrar Evento</h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
@@ -41,4 +41,7 @@
     </div>
   </form>
   <input class="btn btn-primary" type="submit" value="Enviar" />
+</div>
+<div class="container">
+  <app-tabla-eventos></app-tabla-eventos>
 </div>

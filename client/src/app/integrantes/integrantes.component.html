@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-4" *ngIf="isRol(2)">
   <h3 class="">Registrar Integrantes</h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
@@ -121,4 +121,7 @@
     type="submit"
     value="Enviar"
   />
+</div>
+<div class="container">
+  <app-tabla-integrantes></app-tabla-integrantes>
 </div>

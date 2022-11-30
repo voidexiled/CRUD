@@ -1,0 +1,14 @@
+<div class="container">
+  <button type="button" class="m-1 col btn btn-success" (click)="setRol(2)">
+    Administrador
+  </button>
+  <button type="button" class="m-1 col btn btn-danger" (click)="setRol(1)">
+    Equipo
+  </button>
+  <button type="button" class="m-1 col btn btn-warning" (click)="setRol(0)">
+    Jurado
+  </button>
+  <button type="button" class="btn btn-primary" (click)="loginAs(getRol())">
+    Iniciar Sesion
+  </button>
+</div>

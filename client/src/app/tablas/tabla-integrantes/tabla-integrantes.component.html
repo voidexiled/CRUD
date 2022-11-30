@@ -1,1 +1,35 @@
-<p>tabla-integrantes works!</p>
+<table class="table table-striped text-white" *ngIf="isRol(2)">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Edad</th>
+      <th scope="col">CURP</th>
+      <th scope="col">Equipo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dato of datos; index as i">
+      <th class="text-white" scope="row">{{ i + 1 }}</th>
+
+      <td class="text-white">{{ dato.Nombre }}</td>
+      <td class="text-white">{{ dato.Apellido1 + " " + dato.Apellido2 }}</td>
+      <td class="text-white">{{ dato.Edad }}</td>
+      <td class="text-white">{{ dato.CURP }}</td>
+      <td class="text-white">{{ dato.Equipo }}</td>
+      <td class="text-white">
+        <button
+          style="margin-right: 5px"
+          class="text-bg-info btn btn-outline-secondary bi bi-pencil-fill"
+          type="button"
+        ></button>
+        <button
+          class="text-bg-danger btn btn-outline-secondary bi bi-backspace-fill"
+          type="button"
+        ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

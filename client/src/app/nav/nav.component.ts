@@ -31,4 +31,13 @@ export class NavComponent implements OnInit {
   goToJurados(): void {
     this.router.navigate(['/', 'jurados']);
   }
+
+  logout(): void {
+    localStorage.removeItem('rol');
+  }
+
+  isRol(id: number): boolean {
+    return localStorage.getItem('rol') == id.toString();
+  }
+
 }
