@@ -3,9 +3,7 @@ using API.Interfaces;
 namespace API.Controllers
 {
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly IAppUsers _users;
 
@@ -18,6 +16,12 @@ namespace API.Controllers
         public async Task<ActionResult> GetUsers()
         {
             return Ok(await _users.GetAllUsers());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetUserById(int id)
+        {
+            return Ok(await _users.GetUserById(id));
         }
     }
 }

@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddDbContext<ConexionSqlServer>(options => options.UseMySQL(builder.Configuration.GetConnectionString("SqlConnection")));
 builder.Services.AddSingleton(new MySqlConfiguration(builder.Configuration.GetConnectionString("SqlConnection")));
 builder.Services.AddScoped<IAppUsers, AppUserDTO>();
+builder.Services.AddScoped<IEquipos, EquipoDTO>();
 var app = builder.Build();
 
 
@@ -27,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 app.UseAuthorization();
 
