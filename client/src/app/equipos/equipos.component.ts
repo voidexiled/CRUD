@@ -9,7 +9,9 @@ export class EquiposComponent implements OnInit {
   nombreEquipo: string = '';
   categoriaEquipo: string = '';
   institucionEquipo: string = '';
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

@@ -1,3 +1,4 @@
+import { EquipoService } from './../../_services/equipo.service';
 import { Evento } from './../../_models/Evento';
 import { Equipo } from './../../_models/Equipo';
 import { Component, OnInit } from '@angular/core';
@@ -22,14 +23,30 @@ const DATOS: Equipo[] = [
   styleUrls: ['./tabla-equipos.component.css']
 })
 export class TablaEquiposComponent implements OnInit {
-  datos = DATOS;
+  datos: Equipo[] = [];
+  datoss = JSON.parse(JSON.stringify(""));
 
-  constructor() {
+  constructor(private equipoService: EquipoService) {
 
   }
 
-  ngOnInit(): void {
 
+
+  ngOnInit(): void {
+    this.equipoService.getEquipos().subscribe((data: any) => {
+      this.datoss = data; console.log(data);
+      data.forEach((element: any) => {
+        this.datos.push(
+          {
+            Nombre: element.nombre,
+            Institucion: element.institucion,
+            Categoria: element.categoria
+          }
+        );
+      }
+      );
+    });
+    console.log(this.datos);
   }
 
   isRol(id: number): boolean {
