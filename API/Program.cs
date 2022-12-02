@@ -19,6 +19,8 @@ builder.Services.AddScoped<IAppUsers, AppUserDTO>();
 builder.Services.AddScoped<IEquipos, EquipoDTO>();
 builder.Services.AddScoped<IIntegrantes, IntegranteDTO>();
 builder.Services.AddScoped<IEventos, EventoDTO>();
+builder.Services.AddScoped<IJurados, JuradoDTO>();
+builder.Services.AddScoped<IEvaluaciones, EvaluacionDTO>();
 
 var app = builder.Build();
 

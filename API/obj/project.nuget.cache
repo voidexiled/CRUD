@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sm8Upwm31p6rkaqAOHgPRo7jEb3/mXwZCrS7GXoVRfJc4ysTAOnXJ6YY+jGc9h3EMow7MfEwpgd2cI1INCxkPA==",
+  "dgSpecHash": "UPkill3/nwW4+dJm1A3JSYCrT3k7IlMFnoNlEEhhRXkVicqhyb23xwJd+7eM4w6Jnsy3OR8k4mpKKUXsOOoHcA==",
   "success": true,
-  "projectFilePath": "C:\\proyectos\\CRUD\\api\\api.csproj",
+  "projectFilePath": "C:\\proyectos\\CRUD\\API\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jalom\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\jalom\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",

@@ -56,7 +56,7 @@ namespace API.Controllers
             var res = await _equipos.CreateEquipo(equipo);
             if (res)
             {
-                return Ok("Equipo creado");
+                return Ok();
             }
             return BadRequest("No se pudo crear el equipo");
         }
@@ -75,7 +75,7 @@ namespace API.Controllers
             var res = await _equipos.UpdateEquipo(equipo);
             if (res)
             {
-                return Ok("Equipo actualizado");
+                return Ok();
             }
             return BadRequest("No se pudo actualizar el equipo");
         }
@@ -86,7 +86,7 @@ namespace API.Controllers
             var res = await _equipos.DeleteEquipo(id);
             if (res)
             {
-                return Ok("Equipo eliminado");
+                return Ok();
             }
             return BadRequest("No se pudo eliminar el equipo");
         }
