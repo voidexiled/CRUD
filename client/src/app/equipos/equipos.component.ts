@@ -84,9 +84,8 @@ export class EquiposComponent implements OnInit {
   editSubmit() {
     this.equipoService.updateEquipo({ Id_equipo: this.id, Nombre: this.nombreEquipo, Institucion: this.institucionEquipo, Evento: this.eventoEquipo, Categoria: parseInt(this.categoriaEquipo) }).subscribe((data: any) => {
       console.log(data);
-
-    }
-    );
+      alert("Equipo registrado");
+    }, err => alert("Error al crear equipo"));
   }
 
 
@@ -111,11 +110,8 @@ export class EquiposComponent implements OnInit {
     this.equipoService.createEquipo({ Nombre: this.nombreEquipo, Institucion: this.institucionEquipo, Evento: this.eventoEquipo, Categoria: cat })
       .subscribe(response => {
         console.log(response);
-
-      }, error => {
-        alert("Error al crear equipo");
-        console.log(error);
-      });
+        alert("Equipo registrado");
+      }, err => alert("Error al crear equipo"));
   }
   setCategoria(cat: string) {
     this.categoriaEquipo = cat;
