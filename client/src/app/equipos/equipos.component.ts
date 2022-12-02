@@ -84,7 +84,7 @@ export class EquiposComponent implements OnInit {
   editSubmit() {
     this.equipoService.updateEquipo({ Id_equipo: this.id, Nombre: this.nombreEquipo, Institucion: this.institucionEquipo, Evento: this.eventoEquipo, Categoria: parseInt(this.categoriaEquipo) }).subscribe((data: any) => {
       console.log(data);
-      alert("Equipo registrado");
+      alert("Equipo editado");
     }, err => alert("Error al crear equipo"));
   }
 
@@ -123,6 +123,7 @@ export class EquiposComponent implements OnInit {
   isRol(id: number): boolean {
     return localStorage.getItem('rol') == id.toString();
   }
+
 
   setEdit(equipo_id: number) {
     this.action = Actions.EDIT_MODE;

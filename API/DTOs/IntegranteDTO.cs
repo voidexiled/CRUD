@@ -66,10 +66,9 @@ namespace API.DTOs
             var _apellido1 = integrante.apellido1;
             var _apellido2 = integrante.apellido2;
             var _edad = integrante.edad;
-            var _equipo = integrante.equipo;
             var db = dbConnection();
-            var sql = @"CALL update_integrante(@_curp, @_nombre, @_apellido1, @_apellido2, @_edad, @_equipo)";
-            var result = await db.ExecuteAsync(sql, new { _curp, _nombre, _apellido1, _apellido2, _edad, _equipo });
+            var sql = @"CALL update_integrante(@_curp, @_nombre, @_apellido1, @_apellido2, @_edad)";
+            var result = await db.ExecuteAsync(sql, new { _curp, _nombre, _apellido1, _apellido2, _edad });
             return result > 0;
         }
 

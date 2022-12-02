@@ -16,16 +16,18 @@
       <td class="text-white">{{ dato.Nombre }}</td>
       <td class="text-white">{{ dato.Apellido1 + " " + dato.Apellido2 }}</td>
       <td class="text-white">{{ dato.Edad }}</td>
-      <td class="text-white">{{ dato.Equipo_id }}</td>
+      <td class="text-white">{{ dato.Equipo }}</td>
       <td class="text-white">
         <button
           style="margin-right: 5px"
           class="text-bg-info btn btn-outline-secondary bi bi-pencil-fill"
           type="button"
+          (click)="setEditMode(dato.CURP)"
         ></button>
         <button
           class="text-bg-danger btn btn-outline-secondary bi bi-backspace-fill"
           type="button"
+          (click)="setDeleteMode(dato.CURP)"
         ></button>
       </td>
     </tr>

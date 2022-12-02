@@ -13,7 +13,7 @@ export class IntegranteService {
     return this.httpClient.get(this.baseUrl);
   }
 
-  getIntegranteById(id: number) {
+  getIntegranteById(id: string) {
     return this.httpClient.get(this.baseUrl + '/' + id);
   }
   getIntegrantesByEquipo(id: number) {
@@ -43,7 +43,7 @@ export class IntegranteService {
     )
   }
 
-  deleteIntegrante(id: number) {
+  deleteIntegrante(id: string) {
     return this.httpClient.delete(this.baseUrl + '/' + id);
   }
 

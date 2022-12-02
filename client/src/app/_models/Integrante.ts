@@ -4,5 +4,5 @@ export interface Integrante {
   Apellido1: string;
   Apellido2: string;
   Edad: number;
-  Equipo_id: number;
+  Equipo: number;
 }

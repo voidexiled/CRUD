@@ -130,7 +130,7 @@ end $
 delimiter $
 CREATE PROCEDURE get_jurado_by_curp (IN curp_part varchar(18))
 begin
-SELECT*FROM jurados where CURP=curp_part;
+SELECT*FROM jurados where curp=curp_part;
 end $
 
 
@@ -249,9 +249,9 @@ begin
 insert into integrantes (curp, nombre, apellido1,  apellido2, edad, equipo ) values (id, nom, apell1, apell2, edad, equipo);
 end $
 delimiter $ 
-CREATE PROCEDURE update_integrante(in id int, in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25), in ed int, in equ int)
+CREATE PROCEDURE update_integrante(in _curp varchar(25), in _nombre varchar(25), in _apellido1 varchar(25), in _apellido2 varchar(25), in _edad int)
 begin
-update integrantes set nombre = nom, apellido1 = apell1,  apellido2 = apell2, edad = ed, equipo = eq where CURP = id;
+update integrantes set nombre = _nombre, apellido1 = _apellido1 ,  apellido2 = _apellido2, edad = _edad where CURP = _curp;
 end $
 delimiter $
 CREATE PROCEDURE delete_integrante(in id varchar(18))
@@ -268,7 +268,7 @@ end $
 delimiter $
 CREATE PROCEDURE get_integrante_by_id (IN curp_part varchar(18))
 begin
-SELECT*FROM integrantes where curp=curp_part;
+SELECT*FROM integrantes where CURP=curp_part;
 end $
 
 delimiter $

@@ -57,7 +57,7 @@ namespace API.Controllers
             var res = await _integrantes.CreateIntegrante(integrante);
             if (res)
             {
-                return Ok("Integrante creado");
+                return Ok();
             }
             return BadRequest("No se pudo crear el integrante");
         }
@@ -76,7 +76,7 @@ namespace API.Controllers
             var res = await _integrantes.UpdateIntegrante(integrante);
             if (res)
             {
-                return Ok("Integrante actualizado");
+                return Ok();
             }
             return BadRequest("No se pudo actualizar el integrante");
         }
@@ -87,7 +87,7 @@ namespace API.Controllers
             var res = await _integrantes.DeleteIntegrante(id);
             if (res)
             {
-                return Ok("Integrante eliminado");
+                return Ok();
             }
             return BadRequest("No se pudo eliminar el integrante");
         }

@@ -4,6 +4,7 @@ import { Evento } from './../../_models/Evento';
 import { Equipo } from './../../_models/Equipo';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Categorias } from 'src/app/_enums/Categorias';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class TablaEquiposComponent implements OnInit {
   datos: Equipo[] = [];
   datoss = JSON.parse(JSON.stringify(""));
 
-  constructor(private equipoService: EquipoService) {
+  constructor(private equipoService: EquipoService, private router: Router) {
 
   }
 
@@ -31,7 +32,8 @@ export class TablaEquiposComponent implements OnInit {
 
   setDeleteMode(id: any) {
     this.id.emit(id)
-    this.act.emit(Actions.DELETE_MODE)
+
+    this.deleteEquipo(id)
   }
 
   getCategoria(id: number): string {
@@ -65,7 +67,13 @@ export class TablaEquiposComponent implements OnInit {
     });
     console.log(this.datos);
   }
+  deleteEquipo(id: number) {
+    this.equipoService.deleteEquipo(id).subscribe((data: any) => {
+      console.log(data);
+      alert("Equipo eliminado");
 
+    }, err => alert("Error al eliminar equipo"));
+  }
   isRol(id: number): boolean {
     return localStorage.getItem('rol') == id.toString();
   }

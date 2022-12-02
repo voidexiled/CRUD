@@ -39,7 +39,7 @@
       aria-describedby="inputGroup-sizing-default"
     />
   </div>
-  <div class="input-group mb-3">
+  <div class="input-group mb-3" *ngIf="action < 1">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroup-sizing-default">CURP</span>
     </div>
@@ -51,7 +51,7 @@
       aria-describedby="inputGroup-sizing-default"
     />
   </div>
-  <div class="row row-cols-sm-auto">
+  <div class="row row-cols-sm-auto" *ngIf="action < 1">
     <div ngbDropdown class="d-inline-block">
       <button
         type="button"
@@ -83,7 +83,7 @@
     </div>
   </div>
 
-  <div *ngIf="edad > 7 && edad < 80" class="row row-cols-sm-auto">
+  <div *ngIf="edad > 7 && edad < 80 && action < 1" class="row row-cols-sm-auto">
     <div ngbDropdown class="d-inline-block">
       <button
         type="button"
@@ -123,5 +123,8 @@
   />
 </div>
 <div class="container">
-  <app-tabla-integrantes></app-tabla-integrantes>
+  <app-tabla-integrantes
+    (id)="setId($event)"
+    (act)="setMode($event)"
+  ></app-tabla-integrantes>
 </div>
