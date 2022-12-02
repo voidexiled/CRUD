@@ -31,6 +31,9 @@ export class NavComponent implements OnInit {
   goToJurados(): void {
     this.router.navigate(['/', 'jurados']);
   }
+  goToEvaluacion(): void {
+    this.router.navigate(['/', 'evaluacion']);
+  }
 
   logout(): void {
     localStorage.removeItem('rol');
