@@ -25,7 +25,7 @@ nombre varchar(25) not null unique
 );
 
 create table JURADOS( 
-CURP varchar(18) primary key,
+CURP varchar(18) primary key not null,
 nombre varchar(25) not null,
 apellido1 varchar(25) not null,
 apellido2 varchar(25) not null,
@@ -70,7 +70,7 @@ foreign key (evento) references EVENTOS(id_evento) on delete cascade on update c
 
 create table EVALUACION(
 id_evaluacion int primary key auto_increment,
-proyecto int  not null,
+proyecto int not null,
 jurado varchar(18) not null,
 evento int not null,
 foreign key (proyecto) references PROYECTO(id_proyecto) on delete cascade on update cascade,
@@ -79,32 +79,86 @@ foreign key(evento) references EVENTOS(id_evento) on delete cascade on update ca
 );
 
 create table CONSTRUCCION(
-insp int not null,
-lib int not null,
-evaluacion int  not null,
-foreign key (evaluacion) references EVALUACION(id_evaluacion) on delete cascade on update cascade,
-constraint PK_CONSTRUCCION primary key (evaluacion,insp, lib)
+id int primary key not null auto_increment,
+evaluacion int not null,
+id_evaluacion int not null,
+foreign key (evaluacion) references EVALUACION(id_evaluacion) on delete cascade on update cascade
 );
 
 create table PROGRAMACION(
-sisAut int not null,
-sisMani int not null,
-demost int not null,
-inspGen int not null,
+id int primary key not null auto_increment,
 evaluacion int not null,
-foreign key (evaluacion) references EVALUACION(id_evaluacion) on delete cascade on update cascade,
-constraint PK_PROGRAMACION primary key (evaluacion,sisAut,sisMani)
+id_evaluacion int not null,
+foreign key (evaluacion) references EVALUACION(id_evaluacion) on delete cascade on update cascade
 );
 
 create table DISENNO(
-medioDigital int not null,
-bitacora int not null,
+id int primary key not null auto_increment,
 evaluacion int not null,
-foreign key (evaluacion) references EVALUACION(id_evaluacion) on delete cascade,
-constraint PK_DISENNO primary key (evaluacion,medioDigital,bitacora)
+id_evaluacion int not null,
+foreign key (id_evaluacion) references EVALUACION(id_evaluacion) on delete cascade
 );
 
 /*procedimientos de altas*/
+
+-- JURADOS --
+
+delimiter $ 
+CREATE PROCEDURE create_jurado(in curp varchar(18), in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25), in contrasena varchar(25))
+begin
+insert into jurados (curp, nombre, apellido1, apellido2, contrasena) values (curp, nom, apell1, apell2, contrasena);
+end $
+
+delimiter $ 
+CREATE PROCEDURE update_jurado(in curp varchar(18), in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25))
+begin
+update jurados set nombre = nom, apellido1 = apell1,  apellido2 = apell2 where CURP = curp;
+end $
+
+delimiter $
+CREATE PROCEDURE delete_jurado(in curp varchar(18))
+begin
+delete from jurados where CURP = curp;
+end $
+
+delimiter $
+CREATE PROCEDURE get_jurados ()
+begin
+SELECT curp, nombre, apellido1, apellido2, contrasena FROM jurados;
+end $
+
+delimiter $
+CREATE PROCEDURE get_jurado_by_curp (IN curp_part varchar(18))
+begin
+SELECT*FROM jurados where CURP=curp_part;
+end $
+
+
+-- EVALUACION --
+delimiter $
+CREATE PROCEDURE get_evaluaciones()
+begin  
+SELECT * FROM evaluacion;
+end $
+
+DROP PROCEDURE IF NOT EXISTS get_evaluacion_by_id
+delimiter $ 
+CREATE PROCEDURE get_evaluacion_by_id (IN id int)
+begin
+SELECT * FROM evaluacion where id_evaluacion = id;
+end $
+
+delimiter $ 
+CREATE PROCEDURE get_evaluacion_by_proyecto (IN p_id int)
+begin
+SELECT*FROM evaluacion where proyecto=p_id;
+end $
+
+delimiter $ 
+CREATE PROCEDURE get_evaluacion_by_jurado (IN j_curp varchar(18))
+begin
+SELECT*FROM evaluacion where jurado=j_curp;
+end $
 
 
 -- EQUIPOS --
@@ -190,9 +244,9 @@ $
 
 -- INTEGRANTES --
 delimiter $ 
-CREATE PROCEDURE create_integrante(in id varchar(18), in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25), in ed int, in equ int)
+CREATE PROCEDURE create_integrante(in id varchar(18), in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25), in edad int, in equipo int)
 begin
-insert into integrantes (curp, nombre, apellido1,  apellido2, edad, equipo ) values (id, nom, apell1, apell2, ed, equ);
+insert into integrantes (curp, nombre, apellido1,  apellido2, edad, equipo ) values (id, nom, apell1, apell2, edad, equipo);
 end $
 delimiter $ 
 CREATE PROCEDURE update_integrante(in id int, in nom varchar(25), in apell1 varchar(25), in apell2 varchar(25), in ed int, in equ int)
@@ -232,6 +286,8 @@ end $
 
 
 -- Jurado
+
+
 delimiter $
 create procedure  AltaJurados(in CURP_ju varchar(18), in nombre_ju varchar(25), in apellido1_ju varchar(25), in apellido2_ju varchar(25))
 begin 
