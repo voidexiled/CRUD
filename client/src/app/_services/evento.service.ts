@@ -1,31 +1,27 @@
-import { Equipo } from './../_models/Equipo';
-import { map, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EquipoService {
-  baseUrl = 'https://localhost:7245/api/equipos';
-
+export class EventoService {
+  baseUrl = 'https://localhost:7245/api/eventos';
   constructor(private http: HttpClient) { }
 
-  getEquipos() {
+  getEventos() {
     return this.http.get(this.baseUrl);
   }
-  getEquipoById(id: number) {
+
+  getEventoById(id: number) {
     return this.http.get(this.baseUrl + '/' + id);
   }
-  getEquipoByName(name: string) {
+
+  getEventoByName(name: string) {
     return this.http.get(this.baseUrl + '/nombre/' + name);
   }
 
-  getEquiposByCategory(id: number) {
-    return this.http.get(this.baseUrl + '/categoria/' + id);
-  }
-  createEquipo(model: Equipo) {
+  createEvento(model: any) {
     return this.http.post(this.baseUrl, model).pipe(
       map((response: any) => {
         const evento = response;
@@ -36,9 +32,8 @@ export class EquipoService {
     )
   }
 
-  updateEquipo(model: Equipo) {
-
-    return this.http.put(this.baseUrl + '/', model).pipe(
+  updateEvento(model: any) {
+    return this.http.put(this.baseUrl + '/' + model.id, model).pipe(
       map(() => {
         const evento = model;
         if (evento) {
@@ -48,9 +43,7 @@ export class EquipoService {
     )
   }
 
-  deleteEquipo(id: number) {
+  deleteEvento(id: number) {
     return this.http.delete(this.baseUrl + '/' + id);
   }
-
-
 }

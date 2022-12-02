@@ -31,19 +31,51 @@ namespace API.DTOs
             return await db.QueryFirstOrDefaultAsync<Equipo>(sql, new { id });
         }
 
-        public Task<Equipo> CreateEquipo(Equipo equipo)
+        public async Task<bool> CreateEquipo(Equipo equipo)
         {
-            throw new NotImplementedException();
+            var _nombre = equipo.nombre;
+            var _institucion = equipo.institucion;
+            var _evento = equipo.evento;
+            var _categoria = equipo.categoria;
+            var db = dbConnection();
+            var sql = @"CALL create_equipo(@_nombre, @_institucion, @_evento, @_categoria)";
+            var result = await db.ExecuteAsync(sql, new { _nombre, _institucion, _evento, _categoria });
+            return result > 0;
         }
 
-        public Task<Equipo> UpdateEquipo(Equipo equipo)
+        public async Task<bool> UpdateEquipo(Equipo equipo)
         {
-            throw new NotImplementedException();
+            var _id = equipo.id_equipo;
+            var _nombre = equipo.nombre;
+            var _institucion = equipo.institucion;
+            var _evento = equipo.evento;
+            var _categoria = equipo.categoria;
+            var db = dbConnection();
+            var sql = @"CALL update_equipo(@_id, @_nombre, @_institucion, @_evento, @_categoria)";
+            var result = await db.ExecuteAsync(sql, new { _id, _nombre, _institucion, _evento, _categoria });
+            return result > 0;
         }
 
-        public Task<Equipo> DeleteEquipo(int id)
+        public async Task<bool> DeleteEquipo(int id)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+            var sql = @"CALL delete_equipo(@id)";
+            var result = await db.ExecuteAsync(sql, new { id });
+            return result > 0;
+        }
+
+        public async Task<IEnumerable<Equipo>> GetEquiposByCategory(int categoria)
+        {
+            var db = dbConnection();
+            var sql = @"CALL get_equipo_by_cat(@categoria)";
+            return await db.QueryAsync<Equipo>(sql, new { categoria });
+        }
+
+        public async Task<Equipo> GetEquipoByName(string nombre)
+        {
+            var db = dbConnection();
+            var sql = @"CALL get_equipo_by_name(@nombre)";
+            return await db.QueryFirstOrDefaultAsync<Equipo>(sql, new { nombre });
         }
     }
 }

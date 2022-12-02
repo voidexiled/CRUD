@@ -32,19 +32,38 @@ namespace API.DTOs
             return await db.QueryFirstOrDefaultAsync<AppUser>(sql, new { id });
         }
 
-        public Task<AppUser> CreateUser(AppUser user)
+        public async Task<bool> CreateUser(AppUser user)
         {
-            throw new NotImplementedException();
+            var _usuario = user.usuario;
+            var _password = user.contrasena;
+            var _rol = user.rol;
+            var db = dbConnection();
+            //var sql = @"INSERT INTO usuarios (nombre, apellido, email, password, rol) VALUES (@_nombre, @_apellido, @_email, @_password, @_rol)";
+            var sql = @"CALL create_user(@_usuario, @_password, @_rol)";
+            var result = await db.ExecuteAsync(sql, new { _usuario, _password, _rol });
+            return result > 0;
         }
 
-        public Task<AppUser> UpdateUser(AppUser user)
+        public async Task<bool> UpdateUser(AppUser user)
         {
-            throw new NotImplementedException();
+            var _id = user.id;
+            var _usuario = user.usuario;
+            var _password = user.contrasena;
+            var _rol = user.rol;
+            var db = dbConnection();
+            //var sql = @"UPDATE usuarios SET nombre = @_nombre, apellido = @_apellido, email = @_email, password = @_password, rol = @_rol WHERE id = @_id";
+            var sql = @"CALL update_user(@_id, @_usuario, @_password, @_rol)";
+            var result = await db.ExecuteAsync(sql, new { _id, _usuario, _password, _rol });
+            return result > 0;
         }
 
-        public Task<AppUser> DeleteUser(int id)
+        public async Task<bool> DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+            //var sql = @"DELETE FROM usuarios WHERE id = @id";
+            var sql = @"CALL delete_user(@id)";
+            var result = await db.ExecuteAsync(sql, new { id });
+            return result > 0;
         }
     }
 }

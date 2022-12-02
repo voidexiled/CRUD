@@ -10,11 +10,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let dato of datos; index as i">
-      <th class="text-white" scope="row">{{ i + 1 }}</th>
+      <th class="text-white" scope="row">{{ dato.Id_evento }}</th>
 
       <td class="text-white">{{ dato.Nombre }}</td>
       <td class="text-white">{{ dato.Sede }}</td>
       <td class="text-white">{{ dato.Fecha }}</td>
+
       <td class="text-white">
         <button
           style="margin-right: 5px"

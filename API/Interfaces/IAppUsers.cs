@@ -6,9 +6,9 @@ namespace API.Interfaces
     {
         Task<IEnumerable<AppUser>> GetAllUsers();
         Task<AppUser> GetUserById(int id);
-        Task<AppUser> CreateUser(AppUser user);
-        Task<AppUser> UpdateUser(AppUser user);
-        Task<AppUser> DeleteUser(int id);
+        Task<bool> CreateUser(AppUser user);
+        Task<bool> UpdateUser(AppUser user);
+        Task<bool> DeleteUser(int id);
 
     }
 }

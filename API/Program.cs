@@ -17,6 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton(new MySqlConfiguration(builder.Configuration.GetConnectionString("SqlConnection")));
 builder.Services.AddScoped<IAppUsers, AppUserDTO>();
 builder.Services.AddScoped<IEquipos, EquipoDTO>();
+builder.Services.AddScoped<IIntegrantes, IntegranteDTO>();
+builder.Services.AddScoped<IEventos, EventoDTO>();
+
 var app = builder.Build();
 
 

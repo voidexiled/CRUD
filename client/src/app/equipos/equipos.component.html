@@ -1,5 +1,17 @@
 <div class="container p-4" *ngIf="isRol(2)">
-  <h3 class="">Registrar Equipo</h3>
+  <h3 class="">
+    <ng-container
+      *ngIf="action == 1; then thenTemplate; else elseTemplate"
+    ></ng-container>
+    <ng-template #thenTemplate> Editando Equipo </ng-template>
+    <ng-template #elseTemplate>
+      <ng-container
+        *ngIf="action == 0; then thenTemplate; else elseTemplate"
+      ></ng-container>
+      <ng-template #thenTemplate> Registrando Equipo </ng-template>
+      <ng-template #elseTemplate> Eliminando Equipo </ng-template>
+    </ng-template>
+  </h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
     <input
@@ -26,7 +38,39 @@
     />
   </div>
 
-  <div class="row row-cols-sm-auto">
+  <div class="row row-cols-sm-auto" *ngIf="action < 1">
+    <div ngbDropdown class="d-inline-block">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+      >
+        Evento
+      </button>
+      <div ngbDropdownMenu aria-labelledby="categoriaDropdown">
+        <button
+          *ngFor="let evento of eventos"
+          ngbDropdownItem
+          (click)="setEvento(evento.Nombre)"
+        >
+          {{ evento.Nombre }}
+        </button>
+      </div>
+    </div>
+    <div class="mb-3">
+      <input
+        [(ngModel)]="eventoEquipo"
+        disabled
+        type="text"
+        class="form-control"
+        aria-label="Default"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+  </div>
+
+  <div class="row row-cols-sm-auto" *ngIf="action < 1">
     <div ngbDropdown class="d-inline-block">
       <button
         type="button"
@@ -37,16 +81,16 @@
         Categoria
       </button>
       <div ngbDropdownMenu aria-labelledby="categoriaDropdown">
-        <button ngbDropdownItem (click)="setCategoria('primaria')">
+        <button ngbDropdownItem (click)="setCategoria('Primaria')">
           Primaria
         </button>
-        <button ngbDropdownItem (click)="setCategoria('secundaria')">
+        <button ngbDropdownItem (click)="setCategoria('Secundaria')">
           Secundaria
         </button>
-        <button ngbDropdownItem (click)="setCategoria('bachillerato')">
+        <button ngbDropdownItem (click)="setCategoria('Bachillerato')">
           Bachillerato
         </button>
-        <button ngbDropdownItem (click)="setCategoria('primaria')">
+        <button ngbDropdownItem (click)="setCategoria('Primaria')">
           Profesional
         </button>
       </div>
@@ -64,12 +108,15 @@
   </div>
 
   <input
-    (click)="submit()"
+    (click)="submitEquipo()"
     class="btn btn-primary"
     type="submit"
     value="Enviar"
   />
 </div>
 <div class="container">
-  <app-tabla-equipos></app-tabla-equipos>
+  <app-tabla-equipos
+    (id)="setId($event)"
+    (act)="setMode($event)"
+  ></app-tabla-equipos>
 </div>

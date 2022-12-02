@@ -97,9 +97,9 @@
         <button
           *ngFor="let it of equipos"
           ngbDropdownItem
-          (click)="setEquipo(it)"
+          (click)="setEquipo(it.Nombre)"
         >
-          {{ it }}
+          {{ it.Nombre }}
         </button>
       </div>
     </div>
@@ -116,7 +116,7 @@
   </div>
 
   <input
-    (click)="submit()"
+    (click)="submitIntegrantes()"
     class="btn btn-primary"
     type="submit"
     value="Enviar"

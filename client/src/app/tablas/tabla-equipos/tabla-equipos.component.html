@@ -5,24 +5,36 @@
       <th scope="col">Nombre</th>
       <th scope="col">Institucion</th>
       <th scope="col">Categoria</th>
+      <th scope="col">Evento</th>
       <th scope="col" *ngIf="isRol(2)">Accion</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dato of datos; index as i">
-      <th class="text-white" scope="row">{{ i + 1 }}</th>
+      <th class="text-white" scope="row">{{ dato.Id_equipo }}</th>
 
       <td class="text-white">{{ dato.Nombre }}</td>
       <td class="text-white">{{ dato.Institucion }}</td>
-      <td class="text-white">{{ dato.Categoria }}</td>
+      <td class="text-white">{{ getCategoria(dato.Categoria) }}</td>
+      <td class="text-white">{{ dato.Evento }}</td>
       <td class="text-white" *ngIf="isRol(2)">
         <button
+          title="Editar"
           style="margin-right: 5px"
           class="text-bg-info btn btn-outline-secondary bi bi-pencil-fill"
           type="button"
+          (click)="setEditMode(dato.Id_equipo)"
         ></button>
         <button
+          title="Eliminar"
+          style="margin-right: 5px"
           class="text-bg-danger btn btn-outline-secondary bi bi-backspace-fill"
+          type="button"
+          (click)="setDeleteMode(dato.Id_equipo)"
+        ></button>
+        <button
+          title="Ver Integrantes"
+          class="text-bg-secondary btn btn-outline-secondary bi bi-person-vcard-fill"
           type="button"
         ></button>
       </td>

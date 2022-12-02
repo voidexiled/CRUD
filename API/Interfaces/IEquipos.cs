@@ -8,10 +8,16 @@ namespace API.Interfaces
     public interface IEquipos
     {
         Task<IEnumerable<Equipo>> GetAllEquipos();
+        Task<IEnumerable<Equipo>> GetEquiposByCategory(int cat_id);
+
+
         Task<Equipo> GetEquipoById(int id);
-        Task<Equipo> CreateEquipo(Equipo equipo);
-        Task<Equipo> UpdateEquipo(Equipo equipo);
-        Task<Equipo> DeleteEquipo(int id);
+        Task<Equipo> GetEquipoByName(string name);
+
+
+        Task<bool> CreateEquipo(Equipo equipo);
+        Task<bool> UpdateEquipo(Equipo equipo);
+        Task<bool> DeleteEquipo(int id);
 
     }
 }

@@ -1,19 +1,6 @@
 import { Evento } from './../../_models/Evento';
 import { Component, OnInit } from '@angular/core';
-
-
-const DATOS: Evento[] = [
-  {
-    Sede: 'Lugar1',
-    Fecha: '11-11-1111',
-    Nombre: 'Evento1',
-  },
-  {
-    Sede: 'Lugar2',
-    Fecha: '22-22-2222',
-    Nombre: 'Evento2',
-  },
-];
+import { EventoService } from 'src/app/_services/evento.service';
 
 @Component({
   selector: 'app-tabla-eventos',
@@ -21,15 +8,29 @@ const DATOS: Evento[] = [
   styleUrls: ['./tabla-eventos.component.css']
 })
 export class TablaEventosComponent implements OnInit {
-  datos = DATOS;
+  datos: Evento[] = [];
+  datoss = JSON.parse(JSON.stringify(""));
 
-  constructor() {
-
-  }
+  constructor(private eventoService: EventoService) { }
 
   ngOnInit(): void {
-
+    this.eventoService.getEventos().subscribe((data: any) => {
+      this.datoss = data; console.log(data);
+      data.forEach((element: any) => {
+        this.datos.push(
+          {
+            Id_evento: element.id_evento,
+            Sede: element.sede,
+            Fecha: element.fecha,
+            Nombre: element.nombre
+          }
+        );
+      }
+      );
+    });
+    console.log(this.datos);
   }
+
   isRol(id: number): boolean {
     return localStorage.getItem('rol') == id.toString();
   }
