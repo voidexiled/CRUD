@@ -1,5 +1,17 @@
 <div class="container p-4" *ngIf="isRol(2)">
-  <h3 class="">Registrar Evento</h3>
+  <h3 class="">
+    <ng-container
+      *ngIf="action == 1; then thenTemplate; else elseTemplate"
+    ></ng-container>
+    <ng-template #thenTemplate> Editando Evento </ng-template>
+    <ng-template #elseTemplate>
+      <ng-container
+        *ngIf="action == 0; then thenTemplate; else elseTemplate"
+      ></ng-container>
+      <ng-template #thenTemplate> Registrando Evento </ng-template>
+      <ng-template #elseTemplate> Eliminando Evento </ng-template>
+    </ng-template>
+  </h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
     <input
@@ -7,6 +19,7 @@
       class="form-control"
       aria-label="Sizing example input"
       aria-describedby="inputGroup-sizing-default"
+      [(ngModel)]="nombre"
     />
   </div>
 
@@ -19,6 +32,7 @@
       class="form-control"
       aria-label="Default"
       aria-describedby="inputGroup-sizing-default"
+      [(ngModel)]="sede"
     />
   </div>
   <form class="row row-cols-sm-auto">
@@ -40,8 +54,16 @@
       </div>
     </div>
   </form>
-  <input class="btn btn-primary" type="submit" value="Enviar" />
+  <input
+    class="btn btn-primary"
+    type="submit"
+    value="Enviar"
+    (click)="validate()"
+  />
 </div>
 <div class="container">
-  <app-tabla-eventos></app-tabla-eventos>
+  <app-tabla-eventos
+    (id)="setId($event)"
+    (act)="setMode($event)"
+  ></app-tabla-eventos>
 </div>

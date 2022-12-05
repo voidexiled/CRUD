@@ -38,11 +38,11 @@ namespace API.DTOs
             return await db.QueryFirstOrDefaultAsync<Evento>(sql, new { nombre });
         }
 
-        public async Task<Evento> GetEventoById(int id)
+        public async Task<Evento> GetEventoById(int id_evento)
         {
             var db = dbConnection();
-            var sql = @"CALL get_evento_by_id(@id)";
-            return await db.QueryFirstOrDefaultAsync<Evento>(sql, new { id });
+            var sql = @"CALL get_evento_by_id(@id_evento)";
+            return await db.QueryFirstOrDefaultAsync<Evento>(sql, new { id_evento });
         }
 
         public async Task<bool> CreateEvento(Evento evento)
@@ -56,16 +56,16 @@ namespace API.DTOs
         public async Task<bool> UpdateEvento(Evento evento)
         {
             var db = dbConnection();
-            var sql = @"CALL update_evento(@id, @sede, @fecha, @nombre)";
+            var sql = @"CALL update_evento(@id_evento, @sede, @fecha, @nombre)";
             var result = await db.ExecuteAsync(sql, new { evento.id_evento, evento.sede, evento.fecha, evento.nombre });
             return result > 0;
         }
 
-        public async Task<bool> DeleteEvento(int id)
+        public async Task<bool> DeleteEvento(int id_evento)
         {
             var db = dbConnection();
-            var sql = @"CALL delete_evento(@id)";
-            var result = await db.ExecuteAsync(sql, new { id });
+            var sql = @"CALL delete_evento(@id_evento)";
+            var result = await db.ExecuteAsync(sql, new { id_evento });
             return result > 0;
         }
 

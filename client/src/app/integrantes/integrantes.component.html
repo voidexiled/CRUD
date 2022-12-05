@@ -1,5 +1,17 @@
 <div class="container p-4" *ngIf="isRol(2)">
-  <h3 class="">Registrar Integrantes</h3>
+  <h3 class="">
+    <ng-container
+      *ngIf="action == 1; then thenTemplate; else elseTemplate"
+    ></ng-container>
+    <ng-template #thenTemplate> Editando Integrante </ng-template>
+    <ng-template #elseTemplate>
+      <ng-container
+        *ngIf="action == 0; then thenTemplate; else elseTemplate"
+      ></ng-container>
+      <ng-template #thenTemplate> Registrando Integrante </ng-template>
+      <ng-template #elseTemplate> Eliminando Integrante </ng-template>
+    </ng-template>
+  </h3>
   <div class="input-group mb-3">
     <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
     <input

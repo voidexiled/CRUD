@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\proyectos\\CRUD\\API\\api.csproj": {}
+    "C:\\proyectos\\crud\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\proyectos\\CRUD\\API\\api.csproj": {
+    "C:\\proyectos\\crud\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\proyectos\\CRUD\\API\\api.csproj",
+        "projectUniqueName": "C:\\proyectos\\crud\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\proyectos\\CRUD\\API\\api.csproj",
-        "packagesPath": "C:\\Users\\jalom\\.nuget\\packages\\",
-        "outputPath": "C:\\proyectos\\CRUD\\API\\obj\\",
+        "projectPath": "C:\\proyectos\\crud\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\Europartners\\.nuget\\packages\\",
+        "outputPath": "C:\\proyectos\\crud\\api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jalom\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Europartners\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"

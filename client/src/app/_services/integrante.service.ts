@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class IntegranteService {
   baseUrl = 'https://localhost:7245/api/integrantes';
   constructor(private httpClient: HttpClient) { }

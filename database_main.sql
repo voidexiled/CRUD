@@ -21,7 +21,8 @@ create table EVENTOS(
 id_evento int primary key auto_increment,
 sede varchar(40) not null,
 fecha varchar(10) not null,
-nombre varchar(25) not null unique
+nombre varchar(25) not null,
+unique(nombre)
 );
 
 create table JURADOS( 
@@ -332,21 +333,21 @@ end $
 
 
 delimiter $
-create procedure create_evento (in sede_ev varchar(40), in fecha_ev varchar(10), in nombre_ev varchar(25))
+create procedure create_evento (in sede varchar(40), in fecha varchar(10), in nombre varchar(25))
 begin 
-insert into EVENTOS (sede, fecha, nombre) values ( sede_ev, fecha_ev, nombre_ev);
+insert into EVENTOS (sede, fecha, nombre) values ( sede, fecha, nombre);
 end $
 
 delimiter $
-create procedure update_evento (in id int, in sede_ev varchar(40), in fecha_ev date, in nombre_ev varchar(25))
+create procedure update_evento (in ev_id_evento int, in ev_sede varchar(40), in ev_fecha varchar(25), in ev_nombre varchar(25))
 begin 
-update eventos set sede = sede_ev, fecha = fecha_ev, nombre = nombre_ev where id_evento = id;
+update eventos set sede = ev_sede, fecha = ev_fecha, nombre = ev_nombre where id_evento = ev_id_evento;
 end $
 
 delimiter $
-create procedure delete_evento (in id int)
+create procedure delete_evento (in ev_id_evento int)
 begin
-delete from eventos where id_evento = id;
+delete from eventos where id_evento = ev_id_evento;
 end $
 
 delimiter $   

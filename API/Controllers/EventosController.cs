@@ -50,7 +50,7 @@ namespace API.Controllers
             var res = await _eventos.CreateEvento(evento);
             if (res)
             {
-                return Ok("Evento creado");
+                return Ok();
             }
             return BadRequest("No se pudo crear el evento");
         }
@@ -68,7 +68,7 @@ namespace API.Controllers
             var res = await _eventos.UpdateEvento(evento);
             if (res)
             {
-                return Ok("Evento actualizado");
+                return Ok();
             }
             return BadRequest("No se pudo actualizar el evento");
         }
@@ -79,7 +79,7 @@ namespace API.Controllers
             var res = await _eventos.DeleteEvento(id);
             if (res)
             {
-                return Ok("Evento eliminado");
+                return Ok();
             }
             return BadRequest("No se pudo eliminar el evento");
         }

@@ -21,10 +21,12 @@
           style="margin-right: 5px"
           class="text-bg-info btn btn-outline-secondary bi bi-pencil-fill"
           type="button"
+          (click)="setEditMode(dato.Id_evento)"
         ></button>
         <button
           class="text-bg-danger btn btn-outline-secondary bi bi-backspace-fill"
           type="button"
+          (click)="setDeleteMode(dato.Id_evento)"
         ></button>
       </td>
     </tr>
